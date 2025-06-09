@@ -14,6 +14,7 @@ import re
 import select
 import shutil
 import subprocess
+from io import StringIO
 import time
 import uuid
 import zipfile
@@ -432,41 +433,31 @@ class LocalEnv(Env[ASpecificLocalConf]):
         poller.register(stdout_fd, select.POLLIN)
         poller.register(stderr_fd, select.POLLIN)
 
-        combined_output = ""
+        console = Console()
+        buffer = StringIO()
         while True:
             if process.poll() is not None:
                 break
             events = poller.poll(100)
             for fd, event in events:
-                if event & select.POLLIN:
-                    if fd == stdout_fd:
-                        while True:
-                            output = process.stdout.readline()
-                            if output == "":
-                                break
-                            Console().print(output.strip(), markup=False)
-                            combined_output += output
-                    elif fd == stderr_fd:
-                        while True:
-                            error = process.stderr.readline()
-                            if error == "":
-                                break
-                            Console().print(error.strip(), markup=False)
-                            combined_output += error
+                if fd == stdout_fd:
+                    line = process.stdout.readline()
+                else:
+                    line = process.stderr.readline()
+                if line:
+                    console.print(line, end="", markup=False)
+                    buffer.write(line)
 
-        # Capture any final output
-        remaining_output, remaining_error = process.communicate()
-        if remaining_output:
-            Console().print(remaining_output.strip(), markup=False)
-            combined_output += remaining_output
-        if remaining_error:
-            Console().print(remaining_error.strip(), markup=False)
-            combined_output += remaining_error
+        # final drain
+        for stream in (process.stdout, process.stderr):
+            for line in stream:
+                console.print(line, end="", markup=False)
+                buffer.write(line)
+        process.wait()
 
-        return_code = process.returncode
         print(Rule("[bold green]LocalEnv Logs End[/bold green]", style="dark_orange"))
 
-        return combined_output, return_code
+        return buffer.getvalue(), process.returncode
 
 
 class CondaConf(LocalConf):
