@@ -433,7 +433,7 @@ class LocalEnv(Env[ASpecificLocalConf]):
         poller.register(stdout_fd, select.POLLIN)
         poller.register(stderr_fd, select.POLLIN)
 
-        console = Console()
+        console = Console(force_terminal=True)
         buffer = StringIO()
         while True:
             if process.poll() is not None:

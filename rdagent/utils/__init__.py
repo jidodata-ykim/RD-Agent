@@ -118,9 +118,6 @@ def filter_redundant_text(stdout: str) -> str:
     filtered_stdout = try_regex_sub(r"\x1B\[[0-?]*[ -/]*[@-~]", stdout)
     filtered_stdout = try_regex_sub(progress_bar_pattern, filtered_stdout, flags=regex.VERBOSE)
 
-    # Collapse any excessive blank lines/spaces
-    filtered_stdout = try_regex_sub(r"\s*\n\s*", filtered_stdout, replace_with="\n")
-
     # Iteratively ask the LLM for additional filtering patterns (up to 3 rounds)
     for _ in range(3):
         truncated_stdout = filtered_stdout
