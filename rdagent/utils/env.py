@@ -391,9 +391,6 @@ class LocalEnv(Env[ASpecificLocalConf]):
         # Setup environment
         if env is None:
             env = {}
-        env["PYTHONWARNINGS"] = "ignore"
-        env["TF_CPP_MIN_LOG_LEVEL"] = "2"
-        env["PYTHONUNBUFFERED"] = "1"
         path = [*self.conf.bin_path.split(":"), "/bin/", "/usr/bin/", *env.get("PATH", "").split(":")]
         env["PATH"] = ":".join(path)
 
@@ -445,11 +442,9 @@ class LocalEnv(Env[ASpecificLocalConf]):
             for fd, event in events:
                 if fd == stdout_fd:
                     line = process.stdout.readline()
-                else:
-                    line = process.stderr.readline()
-                if line:
-                    console.print(line, end="", markup=False)
-                    buffer.write(line)
+                    if line:
+                        console.print(line, end="", markup=False)
+                        buffer.write(line)
 
         # final drain
         for stream in (process.stdout, process.stderr):
