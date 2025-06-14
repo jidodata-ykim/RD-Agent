@@ -433,7 +433,6 @@ class LocalEnv(Env[ASpecificLocalConf]):
         poller.register(stdout_fd, select.POLLIN)
         poller.register(stderr_fd, select.POLLIN)
 
-        console = Console(width=int(os.environ.get("COLUMNS", 167)))
         buffer = StringIO()
         while True:
             if process.poll() is not None:
@@ -443,15 +442,15 @@ class LocalEnv(Env[ASpecificLocalConf]):
                 if fd == stdout_fd:
                     line = process.stdout.readline()
                     if line:
-                        console.print(line, end="", markup=False)
+                        print(line, end="")
                         buffer.write(line)
 
         # final drain
+        process.wait()
         for stream in (process.stdout, process.stderr):
             for line in stream:
-                console.print(line, end="", markup=False)
+                print(line, end="")
                 buffer.write(line)
-        process.wait()
 
         print(Rule("[bold green]LocalEnv Logs End[/bold green]", style="dark_orange"))
 
