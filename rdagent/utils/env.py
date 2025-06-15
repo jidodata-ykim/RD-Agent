@@ -426,34 +426,13 @@ class LocalEnv(Env[ASpecificLocalConf]):
         if process.stdout is None or process.stderr is None:
             raise RuntimeError("The subprocess did not correctly create stdout/stderr pipes")
 
-        stdout_fd = process.stdout.fileno()
-        stderr_fd = process.stderr.fileno()
+        out, err = process.communicate()
 
-        poller = select.poll()
-        poller.register(stdout_fd, select.POLLIN)
-        poller.register(stderr_fd, select.POLLIN)
-
-        buffer = StringIO()
-        while True:
-            if process.poll() is not None:
-                break
-            events = poller.poll(100)
-            for fd, event in events:
-                if fd == stdout_fd:
-                    line = process.stdout.readline()
-                    if line:
-                        print(line, end="")
-                        buffer.write(line)
-
-        # final drain
-        process.wait()
-        for stream in (process.stdout, process.stderr):
-            for line in stream:
-                print(line, end="")
-                buffer.write(line)
-
+        print(out, end="")
+        print(err, end="")
+        buffer.write(out)
+        buffer.write(err)
         print(Rule("[bold green]LocalEnv Logs End[/bold green]", style="dark_orange"))
-
         return buffer.getvalue(), process.returncode
 
 
