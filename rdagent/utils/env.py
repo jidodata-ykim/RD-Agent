@@ -427,9 +427,10 @@ class LocalEnv(Env[ASpecificLocalConf]):
             raise RuntimeError("The subprocess did not correctly create stdout/stderr pipes")
 
         out, err = process.communicate()
-
-        print(out, end="")
-        print(err, end="")
+        console = Console(width=int(os.environ.get("COLUMNS", 167)))
+        buffer = StringIO()
+        console.print(out, end="", markup=False)
+        console.print(err, end="", markup=False)
         buffer.write(out)
         buffer.write(err)
         print(Rule("[bold green]LocalEnv Logs End[/bold green]", style="dark_orange"))
