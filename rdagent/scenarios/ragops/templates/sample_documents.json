@@ -1,0 +1,82 @@
+[
+  {
+    "id": "doc_001",
+    "content": "France is a country in Western Europe. Its capital and largest city is Paris, which is known for the Eiffel Tower and the Louvre Museum. France has a rich history and culture."
+  },
+  {
+    "id": "doc_002", 
+    "content": "William Shakespeare was an English playwright, poet, and actor, widely regarded as the greatest writer in the English language. He wrote Romeo and Juliet early in his career."
+  },
+  {
+    "id": "doc_003",
+    "content": "The speed of light in vacuum is a fundamental physical constant. Its exact value is 299,792,458 meters per second. This speed is denoted by the letter c."
+  },
+  {
+    "id": "doc_004",
+    "content": "Machine learning is a subset of artificial intelligence that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving accuracy."
+  },
+  {
+    "id": "doc_005",
+    "content": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with distinctive bands and the Great Red Spot."
+  },
+  {
+    "id": "doc_006",
+    "content": "Python is a high-level programming language known for its simplicity and readability. It is widely used in data science, web development, and automation."
+  },
+  {
+    "id": "doc_007",
+    "content": "The Eiffel Tower is an iron lattice tower located on the Champ de Mars in Paris, France. It was constructed from 1887 to 1889 as the entrance arch to the 1889 World's Fair."
+  },
+  {
+    "id": "doc_008",
+    "content": "Artificial Intelligence refers to the simulation of human intelligence in machines that are programmed to think and learn. Machine learning is a key component of AI."
+  },
+  {
+    "id": "doc_009",
+    "content": "The Solar System consists of the Sun and everything that orbits it, including planets, moons, asteroids, and comets. Jupiter is the largest planet in our Solar System."
+  },
+  {
+    "id": "doc_010",
+    "content": "Natural Language Processing (NLP) is a branch of AI that helps computers understand, interpret and manipulate human language. It combines computational linguistics with machine learning."
+  },
+  {
+    "id": "doc_011",
+    "content": "Paris is not only the capital of France but also its most populous city. The city is known for its art, fashion, gastronomy and culture."
+  },
+  {
+    "id": "doc_012",
+    "content": "Shakespeare's plays are traditionally divided into comedies, histories, and tragedies. Romeo and Juliet is one of his most famous tragedies."
+  },
+  {
+    "id": "doc_013",
+    "content": "Light travels at different speeds through different materials. In vacuum, it travels at exactly 299,792,458 meters per second, but slows down in other media."
+  },
+  {
+    "id": "doc_014",
+    "content": "Deep learning is a subset of machine learning that uses neural networks with multiple layers. It has revolutionized fields like computer vision and natural language processing."
+  },
+  {
+    "id": "doc_015",
+    "content": "The gas giants in our Solar System are Jupiter, Saturn, Uranus, and Neptune. Jupiter is by far the largest, containing more mass than all other planets combined."
+  },
+  {
+    "id": "doc_016",
+    "content": "France has been a major power in Europe for centuries. Its capital Paris has been a center of art, science, and philosophy since the Age of Enlightenment."
+  },
+  {
+    "id": "doc_017",
+    "content": "The works of William Shakespeare have been translated into every major language and are performed more often than those of any other playwright."
+  },
+  {
+    "id": "doc_018",
+    "content": "Einstein's theory of special relativity established that the speed of light in vacuum is the same for all observers, regardless of their motion."
+  },
+  {
+    "id": "doc_019",
+    "content": "Supervised learning is a type of machine learning where the model is trained on labeled data. It learns to map inputs to outputs based on example input-output pairs."
+  },
+  {
+    "id": "doc_020",
+    "content": "Jupiter has at least 79 known moons, including the four large Galilean moons discovered by Galileo Galilei in 1610: Io, Europa, Ganymede, and Callisto."
+  }
+]

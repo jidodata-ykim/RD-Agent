@@ -1,0 +1,29 @@
+{
+  "qa_pairs": [
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "context": "France is a country in Western Europe. Its capital and largest city is Paris, which is known for the Eiffel Tower and the Louvre Museum."
+    },
+    {
+      "question": "Who wrote Romeo and Juliet?",
+      "answer": "William Shakespeare",
+      "context": "Romeo and Juliet is a tragedy written by William Shakespeare early in his career about two young star-crossed lovers."
+    },
+    {
+      "question": "What is the speed of light?",
+      "answer": "299,792,458 meters per second",
+      "context": "The speed of light in vacuum, commonly denoted c, is a universal physical constant important in many areas of physics. Its exact value is 299,792,458 meters per second."
+    },
+    {
+      "question": "What is machine learning?",
+      "answer": "A subset of artificial intelligence",
+      "context": "Machine learning is a subset of artificial intelligence that enables systems to learn and improve from experience without being explicitly programmed."
+    },
+    {
+      "question": "What is the largest planet in our solar system?",
+      "answer": "Jupiter",
+      "context": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun."
+    }
+  ]
+}
